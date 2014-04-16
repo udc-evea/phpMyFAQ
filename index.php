@@ -77,17 +77,6 @@ PMF_Cache::init($faqConfig);
 //
 $action = PMF_Filter::filterInput(INPUT_GET, 'action', FILTER_SANITIZE_STRING, 'main');
 
-/*$moodleUser1 = $_GET['u'];
-
-if($moodleUser1 == 'onmula'){
-    $faqusername = 'alumno';
-    $faqpassword = 'alumno';
-}else{
-    $faqusername = 'docente';
-    $faqpassword = 'docente';
-}*/
-
-
 //
 // Authenticate current user
 //
@@ -99,8 +88,13 @@ $faqpassword = PMF_Filter::filterInput(INPUT_POST, 'faqpassword', FILTER_SANITIZ
 $faqaction   = PMF_Filter::filterInput(INPUT_POST, 'faqloginaction', FILTER_SANITIZE_STRING);
 $faqremember = PMF_Filter::filterInput(INPUT_POST, 'faqrememberme', FILTER_SANITIZE_STRING);
 
+//tomo los datos del usuario de Moodle
+$moodleUserName = PMF_Filter::filterInput(INPUT_POST, 'moodleusername', FILTER_SANITIZE_STRING);
+$moodleUserMail = PMF_Filter::filterInput(INPUT_POST, 'moodleusermail', FILTER_SANITIZE_STRING);
 
-
+session_start();
+$_SESSION['moousr'] = $moodleUserName;
+$_SESSION['mooml'] = $moodleUserMail;
 
 // Set username via SSO
 if ($faqConfig->get('security.ssoSupport') && isset($_SERVER['REMOTE_USER'])) {
