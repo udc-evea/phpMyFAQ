@@ -91,6 +91,15 @@ $faqremember = PMF_Filter::filterInput(INPUT_POST, 'faqrememberme', FILTER_SANIT
 //tomo los datos del usuario de Moodle
 $moodleUserName = PMF_Filter::filterInput(INPUT_POST, 'moodleusername', FILTER_SANITIZE_STRING);
 $moodleUserMail = PMF_Filter::filterInput(INPUT_POST, 'moodleusermail', FILTER_SANITIZE_STRING);
+if(empty($moodleUserName)){
+    $moodleUserName = "Anonimo";
+}
+if(empty($moodleUserMail)){
+    $moodleUserMail = "anonimo@gmail.com";
+}
+
+//$user->getUserData('display_name') = $moodleUserName;
+//$user->getUserData('email') = $moodleUserMail;
 
 session_start();
 $_SESSION['moousr'] = $moodleUserName;

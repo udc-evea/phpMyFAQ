@@ -35,7 +35,7 @@ if (!defined('IS_VALID_PHPMYFAQ')) {
 
 <footer>
     <div class="container-fluid">
-        <div class="row">
+        <!--<div class="row">
             <form action="index.php<?php print (isset($action) ? '?action=' . $action : ''); ?>" method="post" class="pull-right" accept-charset="utf-8">
             <?php print PMF_Language::selectLanguages($LANGCODE, true); ?>
             </form>
@@ -47,7 +47,7 @@ if (!defined('IS_VALID_PHPMYFAQ')) {
                 Follow us on <a href="http://twitter.com/phpMyFAQ">Twitter</a> |
                 &copy; 2001-2013 <a href="http://www.phpmyfaq.de/" target="_blank">phpMyFAQ Team</a>
             </p>
-        </div>
+        </div>-->
     </div>
 <?php
     if (DEBUG) {
